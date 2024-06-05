@@ -14,7 +14,7 @@ const HomeCategory = () => {
   const [homecategory, setHomeCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/categories")
+    fetch("https://plate-pal-server.vercel.app/categories")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch");

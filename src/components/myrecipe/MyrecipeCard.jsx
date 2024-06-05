@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const MyrecipeCard = ({ myrecipe, onDelete }) => {
   const handleDelete = async () => {
-    await fetch(`http://localhost:4000/recipes/${myrecipe._id}`, {
+    await fetch(`https://plate-pal-server.vercel.app/recipes/${myrecipe._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

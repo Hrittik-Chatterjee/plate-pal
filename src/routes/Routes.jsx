@@ -100,7 +100,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/recipes/${params._id}`),
+          fetch(`https://plate-pal-server.vercel.app/recipes/${params._id}`),
       },
     ],
   },

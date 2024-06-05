@@ -13,7 +13,7 @@ const AddRecipe = () => {
 
     const data = { title, ratings, category, details, image, author };
 
-    await fetch("http://localhost:4000/recipes", {
+    await fetch("https://plate-pal-server.vercel.app/recipes", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

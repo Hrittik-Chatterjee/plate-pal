@@ -10,7 +10,7 @@ const Home = () => {
   const [newrecipes, setNewrecipes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/recipes")
+    fetch("https://plate-pal-server.vercel.app/recipes")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch");

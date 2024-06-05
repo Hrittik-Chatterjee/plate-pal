@@ -23,7 +23,7 @@ const EditRecipe = () => {
     const image = form.image.value;
     const data = { title, ratings, category, details, image, author };
 
-    await fetch(`http://localhost:4000/recipes/${recipe._id}`, {
+    await fetch(`https://plate-pal-server.vercel.app/recipes/${recipe._id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",

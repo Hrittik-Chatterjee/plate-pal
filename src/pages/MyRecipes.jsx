@@ -5,7 +5,7 @@ const MyRecipes = () => {
   const [myrecipe, setMyrecipe] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/recipes")
+    fetch("https://plate-pal-server.vercel.app/recipes")
       .then((res) => res.json())
       .then((data) => setMyrecipe(data));
   }, []);
