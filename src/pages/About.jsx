@@ -1,9 +1,12 @@
 const About = () => {
   return (
     <div>
-      <h1 className="text-center text-lg font-bold my-8">About Plate Pal</h1>
-      <div>
-        <img className="w-full  h-80 mt-4" src="/about.jpg" alt="about" />
+      <div className="text-center text-2xl font-bold my-8 divider divider-error italic">
+        About <span className="text-green-900 ">Plate Pal...</span>
+      </div>
+
+      <div className="flex justify-center mt-2">
+        <img className="w-[600px]" src="/Cookingbro.png" alt="about" />
       </div>
       <div>
         <p className="mb-12 mt-4">

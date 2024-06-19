@@ -9,7 +9,7 @@ const CategoryCard = ({ item }) => {
         }`}</p>
       </div>
       <figure>
-        <img src={item.image} alt="recipe" />
+        <img className="w-full h-64" src={item.image} alt="recipe" />
       </figure>
     </div>
   );

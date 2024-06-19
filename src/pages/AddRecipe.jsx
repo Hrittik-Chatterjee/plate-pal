@@ -1,5 +1,9 @@
+import useAuth from "../hooks/useAuth";
+
 const AddRecipe = () => {
+  const { user } = useAuth();
   const handleSubmit = async (e) => {
+    const token = localStorage.getItem("token");
     e.preventDefault();
 
     const form = e.target;
@@ -10,13 +14,24 @@ const AddRecipe = () => {
     const details = form.details.value;
     const image = form.image.value;
     const author = form.author.value;
+    const userEmail = user.email;
+    // const id = form.id.value;
 
-    const data = { title, ratings, category, details, image, author };
+    const data = {
+      title,
+      ratings,
+      category,
+      details,
+      image,
+      author,
+      userEmail,
+    };
 
-    await fetch("https://plate-pal-server.vercel.app/recipes", {
+    await fetch("https://plate-pal-server.onrender.com/recipes", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     })
@@ -30,7 +45,7 @@ const AddRecipe = () => {
   return (
     <section className="bg-slate-200 ">
       <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-        <h2 className="mb-4 text-xl font-bold text-gray-900 ">
+        <h2 className="mb-4 md:text-xl lg:text-xl sm:text-lg font-bold text-gray-900 ">
           Add a new recipe
         </h2>
         <form onSubmit={handleSubmit}>
@@ -96,7 +111,7 @@ const AddRecipe = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 name="category"
               >
-                <option selected="" value="pizza">
+                <option defaultValue value="pizza">
                   Pizza
                 </option>
                 <option value="chocolate">Chocolate</option>
@@ -123,19 +138,7 @@ const AddRecipe = () => {
                 <option value="5">5</option>
               </select>
             </div>
-            {/* <div>
-              <label className="block mb-2 text-sm font-medium text-gray-900 ">
-                Item Weight (kg)
-              </label>
-              <input
-                type="number"
-                name="item-weight"
-                id="item-weight"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="12"
-                required=""
-              />
-            </div> */}
+
             <div className="sm:col-span-2">
               <label className="block mb-2 text-sm font-medium text-gray-900 ">
                 details
@@ -150,7 +153,7 @@ const AddRecipe = () => {
           </div>
           <button
             type="submit"
-            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-green-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800"
+            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-green-500 rounded-lg "
           >
             Add product
           </button>

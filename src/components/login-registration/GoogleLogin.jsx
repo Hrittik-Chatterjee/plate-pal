@@ -8,16 +8,21 @@ const GoogleLogin = () => {
     googleLogin().then((data) => {
       if (data?.user?.email) {
         const userInfo = {
-          email: data?.user?.email,
           name: data?.user?.displayName,
+          email: data?.user?.email,
+          imageUrl: data?.user?.photoURL,
         };
-        fetch("https://plate-pal-server.vercel.app/user", {
+        fetch("https://plate-pal-server.onrender.com/users", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-type": "application/json",
           },
           body: JSON.stringify(userInfo),
-        });
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data?.token);
+          });
       }
     });
   };

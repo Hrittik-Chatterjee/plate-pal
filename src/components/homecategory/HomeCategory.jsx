@@ -4,9 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-
 import "./HomeCategory.css";
-
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
 
@@ -14,7 +12,7 @@ const HomeCategory = () => {
   const [homecategory, setHomeCategory] = useState([]);
 
   useEffect(() => {
-    fetch("https://plate-pal-server.vercel.app/categories")
+    fetch("https://plate-pal-server.onrender.com/categories")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch");
@@ -32,11 +30,12 @@ const HomeCategory = () => {
   return (
     <>
       <section className="m">
-        <h1 className="font-bold text-2xl text-center my-8">
+        <div className="font-bold text-2xl text-center my-8 divider divider-warning italic">
           Popular {""}
           <span className="text-green-900 ">Recipes Types...</span>
-        </h1>
+        </div>
         <Swiper
+          id="swiperId"
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
@@ -53,7 +52,11 @@ const HomeCategory = () => {
           className="mySwiper mb-6"
         >
           {homecategory.map((category) => (
-            <SwiperSlide key={category._id} className="mr-12 relative">
+            <SwiperSlide
+              id="swiperslide"
+              key={category._id}
+              className="mr-12 relative"
+            >
               <img
                 src={category.image}
                 alt="category image"

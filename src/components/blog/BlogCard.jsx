@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const BlogCard = ({ blog }) => {
   return (
@@ -16,7 +18,7 @@ const BlogCard = ({ blog }) => {
           blog.details.length > 100 ? "..." : ""
         }`}</p>
         <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-          Read More
+          <Link to={`/recipes/${blog._id}`}>Read more...</Link>
         </button>
       </div>
     </div>

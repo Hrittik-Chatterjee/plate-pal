@@ -9,7 +9,7 @@ const Categories = () => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("https://plate-pal-server.vercel.app/recipes")
+    fetch("https://plate-pal-server.onrender.com/recipes")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch");
@@ -28,6 +28,7 @@ const Categories = () => {
   const cheese = category.filter((item) => item.category === "cheese");
   const chocolate = category.filter((item) => item.category === "chocolate");
   const burger = category.filter((item) => item.category === "burger");
+  const cake = category.filter((item) => item.category === "cake");
 
   return (
     <div className="text-center mt-2">
@@ -37,6 +38,7 @@ const Categories = () => {
           <Tab>Cheese </Tab>
           <Tab>Chocolate </Tab>
           <Tab>Burger </Tab>
+          <Tab>Cake </Tab>
         </TabList>
         <TabPanel>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -62,6 +64,13 @@ const Categories = () => {
         <TabPanel>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {burger.map((item) => (
+              <CategoryCard key={item._id} item={item} />
+            ))}
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {cake.map((item) => (
               <CategoryCard key={item._id} item={item} />
             ))}
           </div>

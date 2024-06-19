@@ -13,7 +13,8 @@ import Dashboard from "../pages/Dashboard";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MyRecipes from "../pages/MyRecipes";
 import EditRecipe from "../pages/EditRecipe";
-import MyInfo from "../pages/MyInfo";
+import EditProfile from "../pages/EditProfile";
+import RecipeDetails from "../pages/RecipeDetails";
 
 export const router = createBrowserRouter([
   {
@@ -36,10 +37,7 @@ export const router = createBrowserRouter([
         path: "/categories",
         element: <Categories />,
       },
-      {
-        path: "/Addrecipe",
-        element: <AddRecipe />,
-      },
+
       {
         path: "/blog",
         element: <Blog />,
@@ -51,6 +49,12 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/recipes/:id",
+        element: <RecipeDetails />,
+        loader: ({ params }) =>
+          fetch(`https://plate-pal-server.onrender.com/recipes/${params.id}`),
       },
     ],
   },
@@ -66,6 +70,24 @@ export const router = createBrowserRouter([
             <Dashboard />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "addrecipe",
+        element: (
+          <PrivateRoute>
+            <AddRecipe />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile/edit/:id",
+        element: (
+          <PrivateRoute>
+            <EditProfile />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://plate-pal-server.onrender.com/users/${params.id}`),
       },
 
       {
@@ -84,14 +106,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "my-info",
-        element: (
-          <PrivateRoute>
-            <MyInfo />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "my-recipes/edit/:id",
         element: (
@@ -100,7 +115,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://plate-pal-server.vercel.app/recipes/${params._id}`),
+          fetch(`https://plate-pal-server.onrender.com/recipes/${params.id}`),
       },
     ],
   },

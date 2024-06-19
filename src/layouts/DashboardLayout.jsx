@@ -1,29 +1,18 @@
 // src/components/Sidebar.js
 
-import {
-  FaCogs,
-  FaUserLock,
-  FaHome,
-  FaPizzaSlice,
-  FaPhone,
-} from "react-icons/fa";
+import { FaCogs, FaHome, FaPizzaSlice, FaPhone } from "react-icons/fa";
+import { IoIosAddCircleOutline } from "react-icons/io";
 import { Link, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
-    <div className="  text-white  drawer lg:drawer-open">
+    <div className="  text-white  drawer drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="flex items-center justify-center h-16 shadow-md">
         <h1 className="text-2xl font-bold">User Dashboard</h1>
       </div>
       <div className="drawer-content flex flex-col items-center justify-center">
         <Outlet />
-        <label
-          htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
-        >
-          Open drawer
-        </label>
       </div>
       <div className="drawer-side bg-gray-500">
         <label
@@ -39,20 +28,23 @@ const DashboardLayout = () => {
                 <span>Dashboard</span>
               </Link>
             </li>
-            <li className="flex items-center space-x-3 hover:bg-gray-700 p-2 rounded-md">
-              <Link
-                to={"my-info"}
-                className="flex items-center w-full space-x-3"
-              >
-                <FaUserLock className="text-xl" /> <span>My Info</span>
-              </Link>
-            </li>
+
             <li className="flex items-center space-x-3 hover:bg-gray-700 p-2 rounded-md">
               <Link
                 to={"my-recipes"}
                 className="flex items-center w-full space-x-3"
               >
                 <FaPizzaSlice className="text-xl" /> <span>My Recipes</span>
+              </Link>
+            </li>
+
+            <li className="flex items-center space-x-3 hover:bg-gray-700 p-2 rounded-md">
+              <Link
+                to={"addrecipe"}
+                className="flex items-center w-full space-x-3"
+              >
+                <IoIosAddCircleOutline className="text-xl" />
+                <span>Add Recipe</span>
               </Link>
             </li>
             <li className="flex items-center space-x-3 hover:bg-gray-700 p-2 rounded-md">

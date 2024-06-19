@@ -10,7 +10,7 @@ const Home = () => {
   const [newrecipes, setNewrecipes] = useState([]);
 
   useEffect(() => {
-    fetch("https://plate-pal-server.vercel.app/recipes")
+    fetch("https://plate-pal-server.onrender.com/recipes")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch");
@@ -30,11 +30,10 @@ const Home = () => {
       <About />
 
       <div>
-        <h1 className="font-bold text-2xl text-center my-8">
-          New {""}
-          <span className="text-green-900 ">Recipes...</span>
-        </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="text-center text-2xl font-bold my-8 divider divider-success italic">
+          Newly Added <span className="text-green-900 ">Recipes...</span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:ml-0 lg:ml-0 ml-16">
           {newrecipes
             .slice()
             .reverse()
@@ -47,10 +46,10 @@ const Home = () => {
       <HomeCategory />
 
       <div>
-        <h1 className="font-bold text-2xl text-center my-8">
+        <div className="font-bold text-2xl text-center my-8 divider divider-success italic">
           New {""}
           <span className="text-green-900 ">Blogs...</span>
-        </h1>
+        </div>
         <div className="grid grid-cols-1  ">
           {newrecipes
             .slice()

@@ -40,7 +40,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className="btn btn-outline btn-sm   mt-2 hover:bg-success text-black  "
+                  className="btn btn-ghost btn-sm   mt-2 hover:bg-success hover:text-black text-black  "
                 >
                   Home
                 </Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/addrecipe"
-                  className="btn btn-outline btn-sm   mt-2 hover:bg-success text-black "
+                  className="btn btn-ghost btn-sm   mt-2 hover:bg-success hover:text-black text-black "
                 >
                   Add Recipe
                 </Link>
@@ -56,7 +56,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/categories"
-                  className="btn btn-outline btn-sm   mt-2 hover:bg-success text-black "
+                  className="btn btn-ghost btn-sm   mt-2 hover:bg-success hover:text-black text-black "
                 >
                   Category
                 </Link>
@@ -64,7 +64,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/contact"
-                  className="btn btn-outline btn-sm   mt-2 hover:bg-success text-black "
+                  className="btn btn-ghost btn-sm   mt-2 hover:bg-success hover:text-black text-black "
                 >
                   Contact
                 </Link>
@@ -72,7 +72,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/blog"
-                  className="btn btn-outline btn-sm   mt-2 hover:bg-success text-black "
+                  className="btn btn-ghost btn-sm   mt-2 hover:bg-success hover:text-black text-black "
                 >
                   Blog
                 </Link>
@@ -80,7 +80,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/about"
-                  className="btn btn-outline btn-sm   mt-2 hover:bg-success text-black "
+                  className="btn btn-ghost btn-sm   mt-2 hover:bg-success hover:text-black text-black "
                 >
                   About
                 </Link>
@@ -88,55 +88,52 @@ const Navbar = () => {
               {user && (
                 <li>
                   <Link
-                    className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white "
+                    className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white "
                     to={"/dashboard"}
                   >
                     Dashboard
                   </Link>
                 </li>
               )}
-              <li>
-                <Link
-                  to="/login"
-                  className="btn btn-outline btn-sm   mt-2 hover:bg-success text-black "
-                >
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/signup"
-                  className="btn btn-outline btn-sm   mt-2 hover:bg-success text-black "
-                >
-                  Sign Up
-                </Link>
-              </li>
+              {!user && (
+                <>
+                  <li>
+                    <Link
+                      to="/login"
+                      className="btn btn-ghost btn-sm   mt-2 hover:bg-success hover:text-black text-black "
+                    >
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/signup"
+                      className="btn btn-ghost btn-sm   mt-2 hover:bg-success hover:text-black text-black "
+                    >
+                      Sign Up
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
-          <a className="btn text-green-500 btn-ghost text-xl ">PlatePal</a>
+          <img className=" w-40 h-40  " src="./platepallogo.png" alt="logo" />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
               <Link
                 to="/"
-                className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white  "
+                className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white  "
               >
                 Home
               </Link>
             </li>
-            <li>
-              <Link
-                to="/addrecipe"
-                className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white "
-              >
-                Add Recipe
-              </Link>
-            </li>
+
             <li>
               <Link
                 to="/categories"
-                className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white "
+                className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white "
               >
                 Category
               </Link>
@@ -144,7 +141,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/contact"
-                className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white "
+                className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white "
               >
                 Contact
               </Link>
@@ -152,7 +149,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/blog"
-                className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white "
+                className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white "
               >
                 Blog
               </Link>
@@ -160,7 +157,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/about"
-                className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white "
+                className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white "
               >
                 About
               </Link>
@@ -168,29 +165,33 @@ const Navbar = () => {
             {user && (
               <li>
                 <Link
-                  className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white "
-                  to={"/dashboard"}
+                  className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white "
+                  to={"/dashboard/home"}
                 >
                   Dashboard
                 </Link>
               </li>
             )}
-            <li>
-              <Link
-                to="/login"
-                className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white "
-              >
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/signup"
-                className="btn btn-outline btn-sm   mr-2 hover:bg-success text-white "
-              >
-                Sign Up
-              </Link>
-            </li>
+            {!user && (
+              <>
+                <li>
+                  <Link
+                    to="/login"
+                    className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white "
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/signup"
+                    className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white "
+                  >
+                    Sign Up
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         {user && (

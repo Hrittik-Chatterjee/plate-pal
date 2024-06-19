@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 
 const BlogSection = () => {
   const [blogs, setBlogs] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetch("https://plate-pal-server.vercel.app/recipes")
+    fetch("https://plate-pal-server.onrender.com/recipes")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch");
@@ -21,15 +22,31 @@ const BlogSection = () => {
       });
   }, []);
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredBlogs = blogs.filter((blog) => {
+    const query = searchQuery.toLowerCase();
+    return (
+      blog.title.toLowerCase().includes(query) ||
+      blog.author.toLowerCase().includes(query) ||
+      blog.category.toLowerCase().includes(query) ||
+      blog.details.toLowerCase().includes(query)
+    );
+  });
+
   return (
     <div>
-      <div className="flex  justify-between">
+      <div className="flex justify-between">
         <div>
           <h1 className="font-bold mt-4">Search Blog</h1>
           <input
             type="text"
             placeholder="Search"
             className="input input-bordered w-24 md:w-auto"
+            value={searchQuery}
+            onChange={handleSearchChange}
           />
         </div>
         <div className="mt-12 flex">
@@ -45,8 +62,8 @@ const BlogSection = () => {
           |
         </div>
       </div>
-      <div className="grid grid-cols-1  ">
-        {blogs.map((blog) => (
+      <div className="grid grid-cols-1">
+        {filteredBlogs.map((blog) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}
       </div>

@@ -12,7 +12,7 @@ const Slider = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    fetch("https://plate-pal-server.vercel.app/recipes")
+    fetch("https://plate-pal-server.onrender.com/recipes")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

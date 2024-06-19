@@ -3,17 +3,19 @@ import { useLoaderData } from "react-router-dom";
 
 const EditRecipe = () => {
   const recipe = useLoaderData();
+
   console.log(recipe);
 
   const [title, setTitle] = useState(recipe.title);
   const [author, setAuthor] = useState(recipe.author);
   const [category, setCategory] = useState(recipe.category);
   const [ratings, setRatings] = useState(recipe.ratings);
-
+  // const [id, setId] = useState(recipe.id);
   const [details, setDetails] = useState(recipe.details);
   const [image, setImage] = useState(recipe.image);
 
   const handleUpdate = async (e) => {
+    const token = localStorage.getItem("token");
     const form = e.target;
     const title = form.title.value;
     const ratings = form.ratings.value;
@@ -21,12 +23,14 @@ const EditRecipe = () => {
     const category = form.category.value;
     const details = form.details.value;
     const image = form.image.value;
+    // const id = form.id.value;
     const data = { title, ratings, category, details, image, author };
 
-    await fetch(`https://plate-pal-server.vercel.app/recipes/${recipe._id}`, {
+    await fetch(`https://plate-pal-server.onrender.com/recipes/${recipe._id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     })
@@ -115,9 +119,7 @@ const EditRecipe = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 name="category"
               >
-                <option selected="" value="pizza">
-                  Pizza
-                </option>
+                <option value="pizza">Pizza</option>
                 <option value="chocolate">Chocolate</option>
                 <option value="cheese">cheese</option>
                 <option value="cake">Cake</option>
@@ -135,9 +137,7 @@ const EditRecipe = () => {
                 onChange={(e) => setRatings(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-primary-500 dark:focus:border-primary-500"
               >
-                <option selected="" value="1">
-                  1
-                </option>
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>

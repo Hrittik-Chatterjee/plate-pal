@@ -5,7 +5,7 @@ import GoogleLogin from "../components/login-registration/GoogleLogin";
 
 const SignUp = () => {
   const [passMatch, setPassMatch] = useState(true);
-  const { createUser, user } = useAuth();
+  const { createUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -16,6 +16,8 @@ const SignUp = () => {
 
     const form = e.target;
     const email = form.email.value;
+    const name = form.name.value;
+    const imageUrl = form.imageUrl.value;
     const password = form.password.value;
     const confirm_password = form.confirm_password.value;
 
@@ -26,10 +28,27 @@ const SignUp = () => {
     console.log(email, password, confirm_password);
 
     if (password === confirm_password) {
-      createUser(email, password);
-      if (user) {
-        navigate(from);
-      }
+      createUser(email, password).then((data) => {
+        if (data?.user?.email) {
+          const userInfo = {
+            email: data?.user?.email,
+            imageUrl: imageUrl,
+            name: name,
+          };
+          fetch("https://plate-pal-server.onrender.com/users", {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(userInfo),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              navigate(from);
+            });
+        }
+      });
     }
   };
   return (
@@ -43,7 +62,21 @@ const SignUp = () => {
         </div>
         <div className="md:w-1/3 max-w-sm">
           <input
-            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            type="text"
+            placeholder="Your Name"
+            name="name"
+            required
+          />
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            type="text"
+            placeholder="Your Photo Url"
+            name="imageUrl"
+            required
+          />
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
             type="email"
             placeholder="Email Address"
             name="email"

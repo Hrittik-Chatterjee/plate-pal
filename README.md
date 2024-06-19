@@ -1,27 +1,89 @@
 # PlatePal
 
-PlatePal is a web application that allows users to discover, create, and share recipes. With PlatePal, you can explore a vast collection of recipes, create your own recipes, and interact with the community by rating and sharing your favorite dishes.
+PlatePal is a web application that allows users to discover, create, and share recipes. Built with React, MongoDB, and Express.js, PlatePal provides a platform for exploring a wide variety of recipes, creating new recipes, and engaging with a community of food enthusiasts.
+
+## Features
+
+- **Recipe Discovery**: Explore a vast collection of recipes across different categories.
+- **Recipe Creation**: Create and publish your own recipes with detailed ingredients, instructions, and images.
+- **Rating System**: Rate recipes and provide feedback to contribute to the community's recipe quality.
+- **User Authentication**: Secure user authentication using Firebase Authentication and JWT tokens.
+- **Responsive UI**: Utilizes Tailwind CSS with Daisy UI components for a clean and responsive user interface.
+- **Charts and Visuals**: Display recipe analytics using Recharts for data visualization.
+- **Carousel and Sliders**: Showcase recipes dynamically using Swiper and React Responsive Carousel.
 
 ## Technologies Used
 
 ### Frontend
 
-- **React**: PlatePal is built using React, a popular JavaScript library for building user interfaces. React provides a component-based architecture, making it easy to create reusable and interactive UI components.
-- **Tailwind CSS**: Tailwind CSS is used for styling the user interface of PlatePal. Tailwind CSS is a utility-first CSS framework that provides a set of pre-built utility classes for quickly building custom designs.
-- **Swiper**: Swiper is a modern JavaScript slider library used to create the carousel/slider for displaying recipes on PlatePal's homepage.
+- **React**: JavaScript library for building user interfaces.
+- **React Router DOM**: Declarative routing for React applications.
+- **Tailwind CSS with Daisy UI**: Utility-first CSS framework with additional UI components.
+- **React Icons, React Rating, React Spinners, React Tabs, React Toastify**: Enhance UI with icons, ratings, spinners, tabs, and toast notifications.
+- **Recharts**: Charting library for displaying recipe analytics.
+- **Swiper, React Responsive Carousel**: Libraries for creating carousels and sliders.
 
 ### Backend
 
-- **Firebase Authentication**: Firebase Authentication is used for user authentication on PlatePal. It provides secure authentication methods, including email/password authentication, Google sign-in, and more.
-- **MongoDB**: PlatePal uses MongoDB, a NoSQL database, to store recipe data. MongoDB offers flexibility and scalability, making it ideal for storing and managing large amounts of recipe data.
-- **Express.js**: Express.js is used as the web server framework for the PlatePal backend. It provides a robust set of features for building web applications and APIs in Node.js.
-- **CORS**: CORS (Cross-Origin Resource Sharing) is configured on the PlatePal backend to allow communication between the frontend and backend servers running on different origins.
+- **Node.js**: JavaScript runtime for building scalable server-side applications.
+- **Express.js**: Web application framework for Node.js.
+- **MongoDB**: NoSQL database for storing recipe data.
+- **Firebase Authentication**: Secure authentication methods including JWT tokens.
 
-## Features
+## JWT Token Authentication
 
-PlatePal offers the following features:
+PlatePal uses JWT tokens for secure user authentication. JWT tokens are generated upon successful user login and are included in subsequent requests to authenticate API calls. Here’s how JWT token authentication works in PlatePal:
 
-- **Recipe Discovery**: Users can explore a wide range of recipes from various categories.
-- **Recipe Creation**: Users can create and publish their own recipes, including details such as ingredients, instructions, and images.
-- **Rating System**: Users can rate recipes and provide feedback to the community.
-- **User Authentication**: PlatePal provides secure authentication methods for users to sign up, sign in, and manage their accounts.
+1. **User Login**: When a user successfully logs in with valid credentials, the server generates a JWT token containing the user's information and a secret key.
+2. **Token Storage**: The JWT token is stored in the client-side localStorage to persist the user's authentication state across browser sessions.
+
+3. **Token Expiration**: JWT tokens have an expiration time (defined by the server) to ensure security. After expiration, the user must re-authenticate to obtain a new token.
+
+4. **Authorization**: Each request to the backend API includes the JWT token in the Authorization header (`Bearer token`) to authenticate the user and authorize access to protected resources (like creating or editing recipes).
+
+5. **Logout**: When the user logs out, the JWT token stored on the client-side is invalidated or deleted, ensuring that subsequent requests are not authenticated.
+
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+- Node.js installed on your local machine.
+- MongoDB installed locally or using a cloud service (e.g., MongoDB Atlas).
+- Firebase project set up for authentication (optional for local development).
+
+### Installation
+
+1. Clone the repo:
+
+   ```sh
+   git clone https://github.com/Hrittik-Chatterjee/plate-pal.git
+   cd platepal
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Set up environment variables:
+
+   - Create a `.env` file in the root directory based on `.env.example`.
+   - Configure variables for MongoDB connection URI, Firebase credentials (if applicable), and other settings.
+
+4. Start the development server:
+
+   ```sh
+   npm run dev
+   ```
+
+5. Open your browser and visit:
+   ```
+   http://localhost:5173
+   ```
+
+## Backend server git repo Link
+
+-https://github.com/Hrittik-Chatterjee/plate-pal-server
