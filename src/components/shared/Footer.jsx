@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10  bg-gray-500 text-neutral-content  flex justify-center">
+      <footer className="footer p-10  bg-gradient-to-r from-yellow-300 via-green-400 to-yellow-800  text-gray-800  flex justify-center">
         <aside>
           <img className="w-36 h-36" src="/platepallogo.png" alt="" />
           <p>

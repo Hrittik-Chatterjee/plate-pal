@@ -40,16 +40,16 @@ const BlogSection = () => {
     <div>
       <div className="flex justify-between">
         <div>
-          <h1 className="font-bold mt-4">Search Blog</h1>
+          <h1 className="font-bold my-4 mx-2">Search Blog</h1>
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
+            className="input input-bordered w-24 md:w-auto mx-2 "
             value={searchQuery}
             onChange={handleSearchChange}
           />
         </div>
-        <div className="mt-12 flex">
+        <div className="mt-12  lg:block md:block hidden">
           <h1 className="text-md text-green-700 mr-2">Recipe Types:</h1>|{" "}
           <Link className="link link-hover link-warning ml-2 mr-2">Cheese</Link>
           |

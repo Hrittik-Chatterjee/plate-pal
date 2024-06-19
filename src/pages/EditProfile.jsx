@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 import { useLoaderData } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
 
 const EditProfile = () => {
   const userInfo = useLoaderData();
@@ -35,6 +36,16 @@ const EditProfile = () => {
       .then((data) => {
         console.log(data);
       });
+    toast.warning("Successfully Updated The Profile", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      transition: Bounce,
+    });
   };
 
   return (

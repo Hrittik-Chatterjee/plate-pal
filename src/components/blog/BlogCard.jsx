@@ -17,7 +17,7 @@ const BlogCard = ({ blog }) => {
         <p className="py-6">{`${blog.details.substring(0, 100)}${
           blog.details.length > 100 ? "..." : ""
         }`}</p>
-        <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+        <button className="mt-4 bg-blue-400 hover:bg-blue-300 text-white font-semibold py-2 px-4 rounded">
           <Link to={`/recipes/${blog._id}`}>Read more...</Link>
         </button>
       </div>

@@ -21,7 +21,7 @@ const MyrecipeCard = ({ myrecipe, onDelete }) => {
         console.log(data);
         onDelete(myrecipe._id);
       });
-    toast.error("Deleted The Product", {
+    toast.error("Deleted The Recipe", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,

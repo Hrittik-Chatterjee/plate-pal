@@ -55,7 +55,7 @@ const SignUp = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0"
+        className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 md:mt-0 lg:mt-0  mt-28 mb-40 md:mb-0 lg:mb-0 mx-5 md:mx-0 md:my-0"
       >
         <div className="md:w-1/3 max-w-sm">
           <img src="/signup.png" alt="Sample image" />

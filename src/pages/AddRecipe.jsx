@@ -1,3 +1,4 @@
+import { Bounce, toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
 
 const AddRecipe = () => {
@@ -40,6 +41,16 @@ const AddRecipe = () => {
         console.log(data);
         form.reset();
       });
+    toast.success("Successfully Added New Recipe", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      transition: Bounce,
+    });
   };
 
   return (

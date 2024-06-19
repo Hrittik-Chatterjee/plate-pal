@@ -35,7 +35,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 w-52 "
+              className="menu menu-sm dropdown-content mt-3 z-20 p-2 shadow bg-base-100 w-52 "
             >
               <li>
                 <Link
@@ -45,14 +45,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/addrecipe"
-                  className="btn btn-ghost btn-sm   mt-2 hover:bg-success hover:text-black text-black "
-                >
-                  Add Recipe
-                </Link>
-              </li>
+
               <li>
                 <Link
                   to="/categories"
@@ -88,7 +81,7 @@ const Navbar = () => {
               {user && (
                 <li>
                   <Link
-                    className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-white "
+                    className="btn btn-ghost btn-sm   mr-2 hover:bg-success hover:text-black text-black "
                     to={"/dashboard"}
                   >
                     Dashboard
