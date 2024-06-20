@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const SliderCard = ({ card }) => {
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero  bg-base-200 md:w-full lg:w-full md:h-full lg:h-full h-[500px] lg:my-0 md:my-0 my-4">
       <div
         className="hero-content flex-col lg:flex-row items-center justify-center"
         style={{
@@ -16,7 +16,7 @@ const SliderCard = ({ card }) => {
       >
         <img
           src={card.image}
-          className=" w-full h-56 lg:w-96 lg:h-72  md:w-96 md:h-72 object-cover rounded-lg shadow-2xl"
+          className=" w-[350px]  h-56 lg:w-96 lg:h-72  md:w-96 md:h-72 object-cover rounded-lg shadow-2xl md:mr-0 lg:mr-0  mr-36"
         />
         <div className="ml-6" style={{ width: "300px" }}>
           <h1 className="md:text-2xl lg:text-2xl text-lg font-bold text-left">
@@ -41,7 +41,7 @@ const SliderCard = ({ card }) => {
               readonly
             />
           </div>
-          <p className=" py-6 overflow-hidden text-ellipsis whitespace-nowrap">
+          <p className=" md:mr-0 lg:mr-0 mr-20 py-6 overflow-hidden text-ellipsis whitespace-nowrap">
             {card.details}
           </p>
           <button className="btn btn-success btn-outline btn-sm">

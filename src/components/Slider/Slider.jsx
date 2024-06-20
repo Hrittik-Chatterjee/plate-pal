@@ -24,7 +24,7 @@ const Slider = () => {
   }, []);
 
   return (
-    <div>
+    <div className="md:w-full lg:w-full md:h-full lg:h-full w-[450px]  mx-auto">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -39,7 +39,7 @@ const Slider = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        {cards.map((card) => (
+        {cards.slice(0, 6).map((card) => (
           <SwiperSlide key={card._id}>
             <SliderCard card={card} />
           </SwiperSlide>

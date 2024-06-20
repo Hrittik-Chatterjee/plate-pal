@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div>
+    <div className="mx-12">
       <div className="text-center text-2xl font-bold my-8 divider divider-error italic">
         About <span className="text-green-900 ">Plate Pal...</span>
       </div>
